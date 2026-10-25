@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HR Policy Assistant | SKonnect Industry</title>
+<meta name="description" content="Ask any question about the SKonnect Industry HR policy and get an answer grounded in the official handbook, with the page it came from.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#composer">Skip to question box</a>
+
+<aside class="rail" id="rail" aria-label="Document and policy index">
+  <div class="rail-head">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M6 25V7l10 9 10-9v18" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="16" cy="25" r="2" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-text">
+        <strong id="brand-name">SKonnect Industry</strong>
+        <span id="brand-tagline">Human Resources</span>
+      </span>
+    </div>
+    <button class="rail-close" id="rail-close" aria-label="Close panel">&times;</button>
+  </div>
+
+  <div class="doc-card" id="doc-card">
+    <div class="doc-top">
+      <span class="doc-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.7"/><path d="M14 3v5h5" stroke="currentColor" stroke-width="1.7"/></svg>
+      </span>
+      <div>
+        <p class="doc-name" id="doc-name">Loading policy...</p>
+        <p class="doc-meta" id="doc-meta">Reading the handbook</p>
+      </div>
+    </div>
+    <div class="doc-actions">
+      <a class="ghost-btn" id="doc-open" href="/api/document" target="_blank" rel="noopener">View PDF</a>
+      <label class="ghost-btn" for="upload">Replace
+        <input type="file" id="upload" accept="application/pdf" hidden>
+      </label>
+    </div>
+    <p class="upload-note" id="upload-note" hidden></p>
+  </div>
+
+  <nav class="index" aria-labelledby="index-title">
+    <p class="rail-label" id="index-title">Policy contents</p>
+    <ul id="section-list" class="section-list"></ul>
+  </nav>
+
+  <footer class="rail-foot">
+    <p>Answers are drawn only from the uploaded handbook. For anything it does not cover, contact your manager or the HR team.</p>
+  </footer>
+</aside>
+
+<main class="stage">
+  <header class="topbar">
+    <button class="icon-btn" id="rail-open" aria-label="Open policy index">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </button>
+    <div class="topbar-title">
+      <span class="pill" id="status-pill"><i></i> Grounded in the official handbook</span>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="theme-toggle" aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6l1.4 1.4m10 10 1.4 1.4m0-12.8-1.4 1.4m-10 10L5.6 18.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
+      <button class="text-btn" id="reset">New question</button>
+    </div>
+  </header>
+
+  <div class="scroller" id="scroller">
+    <section class="hero" id="hero">
+      <p class="hero-eyebrow" id="hero-eyebrow">SKonnect Industry &middot; HR Policy Manual</p>
+      <h1>Nobody reads the handbook.<br><em>Ask it instead.</em></h1>
+      <p class="hero-sub">
+        Time off, remote work, pay, travel claims, appraisals, safety. Ask in
+        your own words and get the answer with the exact section and page it
+        came from, so you can check it yourself.
+      </p>
+      <div class="chips" id="chips" role="group" aria-label="Example questions"></div>
+    </section>
+
+    <div class="thread" id="thread" aria-live="polite"></div>
+    <div class="scroll-pad"></div>
+  </div>
+
+  <form class="composer" id="composer" autocomplete="off">
+    <div class="composer-inner">
+      <textarea id="question" rows="1" maxlength="600" placeholder="Ask about leave, pay, notice period..." aria-label="Your question"></textarea>
+      <button type="submit" id="send" aria-label="Send question">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <p class="composer-note">Every answer cites the handbook. Nothing is invented.</p>
+  </form>
+</main>
+
+<div class="scrim" id="scrim" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

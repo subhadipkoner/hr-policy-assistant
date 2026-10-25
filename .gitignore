@@ -1,0 +1,19 @@
+# Secrets. Never commit: .env holds the live API key.
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Policy documents are confidential company input, not source code.
+# Supply one at runtime: drop it in data/ or use Replace in the sidebar.
+# Matched anywhere, not just data/: a copy under static/ would be served
+# publicly by the StaticFiles mount as well as committed.
+*.pdf
+data/archive/
+data/_dump.txt
+data/_new.txt
+
+# Generated from the PDF; contains the handbook's full text.
+data/index.json
